@@ -1,0 +1,1 @@
+// vendor object and its properties will be here. 
