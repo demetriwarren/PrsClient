@@ -1,51 +1,54 @@
+import { NavLink } from "react-router-dom";
+
 function NavPanel() {
   return (
     <nav className=" d-flex flex-column p-3 border-end vh-100 bg-body-tertiary">
       <span>
-        <a className="ms-3 text-decoration-none">
+        <NavLink to="/create-new" className="ms-3 text-decoration-none">
           <svg className="bi me-1" width={20} height={20} fill="currentColor">
             <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#plus-circle-fill" />
           </svg>
           Create New
-        </a>
+        </NavLink>
       </span>
       <span className="d-flex mt-3 ps-4">Purchase</span>
       <ul className="nav nav-pills flex-column px-3">
         <li className="nav-item p-2">
-          <a className="nav-link" aria-current="page" href="requests/requests.html">
+          <NavLink to="/requests" className="nav-link">
             <svg className="bi me-2" width={20} height={20} fill="currentColor">
               <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#cart" />
             </svg>
             Requests
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item p-2">
-          <a className="nav-link" aria-current="page" href="products/products.html">
+          <NavLink to="/products" className="nav-link">
             <svg className="bi me-2" width={20} height={20} fill="currentColor">
               <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#grid" />
             </svg>
             Products
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item p-2">
-          <a className="nav-link" aria-current="page" href="vendors/vendors.html">
+          <NavLink to={"/vendors"} className="nav-link">
+            {/* <a className="nav-link active" aria-current="page" href="vendors.html"> */}
             <svg className="bi me-2" width={20} height={20} fill="currentColor">
               <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#building" />
             </svg>
             Vendors
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item p-2">
-          <a className="nav-link" aria-current="page" href="users/users.html">
+        <NavLink to={"/users"} className="nav-link">
             <svg className="bi me-2" width={20} height={20} fill="currentColor">
               <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#people" />
             </svg>
             Users
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
   );
 }
 
-export default NavPanel
+export default NavPanel;
