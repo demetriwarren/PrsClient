@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { VendorList } from "./VendorList";
 
 
 export function VendorsPage() {
@@ -15,7 +16,7 @@ export function VendorsPage() {
         </header>
         <section>
 
-        
+          <VendorList/>
 
         </section>
     </>
