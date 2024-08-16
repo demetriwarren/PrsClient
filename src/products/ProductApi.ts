@@ -4,7 +4,7 @@ import {
     delay,
     parseJSON,
   } from "../utility/fetchUtilities";
-  import { Vendor } from "./Vendor";
+  import { Vendor } from "./Product";
   
   let url = `${BASE_URL}/vendors`;
   

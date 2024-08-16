@@ -2,14 +2,7 @@
 
 export class Vendor {
     id: number | undefined;
-    code = "";
     name = "";
-    address = "";
-    city = "";
-    state = "";
-    zip = "";
-    phone: string | null = "";
-    email: string | null = "";
 
 get isNew(): boolean {              //acts as a property(if theres not an id then this vendor is new and it will add a new one. if not it will update.)
     return this.id === undefined;       //if the id is undefined it will return true, if not it will be false

@@ -1,4 +1,4 @@
-export function VendorList(){
+export function ProductList(){
     //gonna have the useState of vendors/useForm in here
     //need the busy state, 
 
@@ -7,7 +7,7 @@ export function VendorList(){
     //useEffect() - needed for the API calls. Has an open array for rendering only after first render. loadVendors inside of the arrow function
     return (
         <section className="d-flex flex-wrap gap-4">
-            <p>vendor cards will be here</p>
+            <p>Product table will be here</p>
         </section>
     )
 }

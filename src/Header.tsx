@@ -1,4 +1,6 @@
-function Header() {
+import { NavLink } from "react-router-dom";
+
+export function Header() {
   return (
     <header className="container-fluid d-flex justify-content-between p-5 bg-body-tertiary ">
       <div>
@@ -11,19 +13,18 @@ function Header() {
           />
         </svg>
         <span>
-          <a className="text-decoration-none" href="index.html">
+          <NavLink to="/" className="text-decoration-none">
             Purchase Request System
-          </a>
+          </NavLink>
         </span>
       </div>
-      <a className="btn btn-primary px-1 py-2" href="sign-in.html">
+      <NavLink to="/sign-in" className="btn btn-primary px-1 py-2">
         <svg className="bi me-1" width={20} height={20} fill="currentColor">
           <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#person" />
         </svg>
         Sign in
-      </a>
+      </NavLink>
     </header>
   );
 }
 
-export default Header

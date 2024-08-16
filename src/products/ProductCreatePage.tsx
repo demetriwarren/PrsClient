@@ -1,8 +1,8 @@
-export function VendorCreatePage() {
+export function ProductCreatePage() {
   return (
     <>
       <section className="container ps-5 pt-4">
-        <h2>New Vendor</h2>
+        <h2>New Product</h2>
         <hr />
         <form className="container-fluid d-flex row ">
           <div>
