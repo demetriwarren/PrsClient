@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Vendor } from "./Vendor";
+import { SyntheticEvent } from "react";
 
 interface VendorCardProps {
     vendor: Vendor;
@@ -21,8 +22,11 @@ export function VendorCard({vendor, onRemove}: VendorCardProps){
                 <p className="m-0">{vendor.email}</p>
             </div>
             <div>
-                <Link to="edit/:id">Edit</Link> |
-                <Link to="remove/:id" className="ms-1">Delete</Link>
+                <Link to={`edit/${vendor.id}`}>Edit</Link> |
+                <a className="ms-1 hover" onClick={(event: SyntheticEvent) =>{
+                    event.preventDefault();
+                    onRemove(vendor);
+                }}>Delete</a>
             </div>
 
         </div>

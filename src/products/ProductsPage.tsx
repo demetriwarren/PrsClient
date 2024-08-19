@@ -13,7 +13,7 @@ export function ProductsPage() {
             Product Create
           </NavLink>
         </header>
-        <section>
+        <section className="card bg-body-tertiary p-4 mt-4">
 
         <ProductList/>
 

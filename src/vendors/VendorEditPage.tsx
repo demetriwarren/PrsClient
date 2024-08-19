@@ -1,3 +1,11 @@
+import { VendorForm } from "./VendorForm";
+
 export function VendorEditPage(){
-    return <h2>Edit page</h2>
+    return (
+        <div>
+            <h2>Edit page</h2>
+            <hr />
+            <VendorForm/>
+        </div>
+    ) 
 }

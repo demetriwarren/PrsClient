@@ -7,7 +7,7 @@ export class Request{
     status = "NEW";
     total = 0;
     userId: number | undefined 
-    requestlines: RequestLine[] | undefined
+    requestLines: RequestLine[] | undefined
 
 
     get isNew(): boolean{
@@ -24,7 +24,7 @@ export class Request{
         if (initializer.status) this.status === initializer.status;
         if (initializer.total) this.total === initializer.total;
         if (initializer.userId) this.userId === initializer.userId;
-        if (initializer.requestlines) this.requestlines === initializer.requestlines;
+        if (initializer.requestLines) this.requestLines === initializer.requestLines;
 
     }
 }
