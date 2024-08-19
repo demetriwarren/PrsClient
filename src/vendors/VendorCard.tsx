@@ -8,17 +8,21 @@ interface VendorCardProps {
 
 export function VendorCard({vendor, onRemove}: VendorCardProps){
     return (
-    <div className="card p-4 ">
+    <div className="card p-4 " style={{width: "25rem"}} >
         <div className="card-body ">
-            <div className="d-flex ">
-                <h2 className="card-title">{vendor.name}</h2>
-                <span className="badge">{vendor.code}</span>
+            <div>
+                <h5 className="card-title">{vendor.name}</h5>
+                <span className="badge text-bg-secondary">{vendor.code}</span>
+            </div>
+            <div className="mt-4">
+                <p className="m-0">{vendor.address}</p>
+                <p className="m-0">{`${vendor.city}, ${vendor.state} ${vendor.zip}`}</p>
+                <p className="m-0">{vendor.phone}</p>
+                <p className="m-0">{vendor.email}</p>
             </div>
             <div>
-                <span>{vendor.address}</span>
-                <span>{`${vendor.city}, ${vendor.state} ${vendor.zip}`}</span>
-                <span>{vendor.phone}</span>
-                <span>{vendor.email}</span>
+                <Link to="edit/:id">Edit</Link> |
+                <Link to="remove/:id" className="ms-1">Delete</Link>
             </div>
 
         </div>

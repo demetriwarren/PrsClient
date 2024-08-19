@@ -48,7 +48,7 @@ export function VendorList() {
                 </div>
             </section>
         )}
-        <section className="d-flex flex-wrap gap-2">
+        <section className="d-flex flex-wrap gap-5">
             {vendors.map((vendor) => (
                 <VendorCard key={vendor.id} vendor={vendor} onRemove={remove}/>
             ))}

@@ -14,7 +14,7 @@ export function VendorsPage() {
             Vendor Create
           </NavLink>
         </header>
-        <section>
+        <section className="card p-4 mt-4 bg-body-tertiary">
 
           <VendorList/>
 
