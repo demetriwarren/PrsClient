@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Product } from "./Product";
+import { SyntheticEvent } from "react";
 
 interface ProductCardProps {
     product: Product;
@@ -20,7 +21,10 @@ export function ProductCard({product, onRemove}: ProductCardProps){
             </div>
             <div>
                 <Link to={`edit/${product.id}`}>Edit</Link> |
-                <Link to="remove/:id" className="ms-1">Delete</Link>
+                <a className="ms-1 hover" onClick={(event: SyntheticEvent) =>{
+                    event.preventDefault();
+                    onRemove(product);
+                }}>Delete</a>
             </div>
 
         </div>

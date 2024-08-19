@@ -11,7 +11,7 @@ export function VendorsPage() {
             <svg className="bi me-1" width={20} height={20} fill="currentColor">
               <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#plus" />
             </svg>
-            Vendor Create
+            New Vendor
           </NavLink>
         </header>
         <section className="card p-4 mt-4 bg-body-tertiary">

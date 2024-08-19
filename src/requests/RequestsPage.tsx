@@ -10,7 +10,7 @@ export function RequestsPage(){
             <svg className="bi me-1" width={20} height={20} fill="currentColor">
               <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#plus" />
             </svg>
-            Request Create
+            New Request
           </NavLink>
         </header>
             <RequestList/>

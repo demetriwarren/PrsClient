@@ -10,7 +10,7 @@ export function ProductsPage() {
             <svg className="bi me-1" width={20} height={20} fill="currentColor">
               <use xlinkHref="/node_modules/bootstrap-icons/bootstrap-icons.svg#plus" />
             </svg>
-            Product Create
+            New Product
           </NavLink>
         </header>
         <section className="card bg-body-tertiary p-4 mt-4">
