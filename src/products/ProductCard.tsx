@@ -17,8 +17,8 @@ export function ProductCard({product, onRemove}: ProductCardProps){
                 <span className="">${product.price} / {product.unit}</span>
             </div>
             <div className="mt-4">
-                <p className="m-0">{product.id}</p>
-                <p className="m-0 badge text-bg-secondary">{product.partNbr}</p>
+                <p className="m-0">{product.vendor?.name}</p>
+                <p className="m-0 badge text-bg-primary">{product.partNbr}</p>
             </div>
             <div className="mt-3">
                 <Link className="btn btn-outline-primary px-2 py-1" to={`edit/${product.id}`}>Edit</Link>
