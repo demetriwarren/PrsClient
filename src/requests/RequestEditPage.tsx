@@ -1,7 +1,7 @@
 export function RequestEditPage(){
     return (
         <>
-        <h2>Request Edit Page</h2>
+        <h2>Edit request</h2>
         </>
     )
 }

@@ -2,8 +2,8 @@ export class User {
   id: number | undefined;
   username = "";
   password = "";
-  firstName = "";
-  lastName = "";
+  firstname = "";
+  lastname = "";
   phone: string | null = "";
   email: string | null = "";
   isReviewer = false;
@@ -18,8 +18,8 @@ export class User {
     if (initializer.id) this.id = initializer.id;
     if (initializer.username) this.username = initializer.username;
     if (initializer.password) this.password = initializer.password;
-    if (initializer.firstName) this.firstName = initializer.firstName;
-    if (initializer.lastName) this.lastName = initializer.lastName;
+    if (initializer.firstname) this.firstname = initializer.firstname;
+    if (initializer.lastname) this.lastname = initializer.lastname;
     if (initializer.phone) this.phone = initializer.phone;
     if (initializer.email) this.email = initializer.email;
     if (initializer.isReviewer) this.isReviewer = initializer.isReviewer;

@@ -2,7 +2,7 @@ export function ProductCreatePage() {
   return (
     <>
       <section className="container ps-5 pt-4">
-        <h2>New Product</h2>
+        <h2>Create new product</h2>
         <hr />
         <form className="container-fluid d-flex row ">
           <div>

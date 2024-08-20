@@ -4,7 +4,7 @@ export function VendorCreatePage() {
   return (
     <>
       <section className="">
-        <h2>New Vendor</h2>
+        <h2>Create new vendor</h2>
         <hr />
         <VendorForm/>
       </section>
