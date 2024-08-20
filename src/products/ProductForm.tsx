@@ -3,11 +3,15 @@ import { Product } from "./Product";
 import { productAPI } from "./ProductApi";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import { Vendor } from "../vendors/Vendor";
+import { vendorAPI } from "../vendors/VendorApi";
 
 export function ProductForm() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const productId = Number(id);
+  const [vendors, setVendors] = useState<Vendor[]>([]);
 
   const {
     register,
@@ -15,6 +19,9 @@ export function ProductForm() {
     formState: { errors },
   } = useForm<Product>({
     defaultValues: async () => {
+      let vendorsData = await vendorAPI.list();
+      setVendors(vendorsData);
+
       if (!productId) {
         return Promise.resolve(new Product());
       } else {
@@ -81,7 +88,7 @@ export function ProductForm() {
             <div className="invalid-feedback">{errors?.price?.message}</div>
           </div>
           <br />
-          <div className="w-100">
+          <div className="w-25">
             <label className="form-label" htmlFor="lastName">
               Unit
             </label>
@@ -92,21 +99,27 @@ export function ProductForm() {
               placeholder="Enter a unit"
             />
             <div className="invalid-feedback">{errors?.unit?.message}</div>
-
-            <div className="w-50">
-              <select className="form-control" id="" >
-                <option value="">--Select a vendor--</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-              </select>
-            </div>
+            <br />
+          </div>
+          <div className="w-50 ms-2 pt-1">
+            <label htmlFor="vendorId">Vendor</label>
+            <select
+              className={`form-select mt-1 ${errors.vendorId && "is-invalid"}`}
+              id="vendorId"
+              {...register("vendorId", { required: "Vendor is required."})}
+            >
+              <option value="">--- Select a vendor ---</option>
+              {vendors.map((vendor) => (
+                <option key={vendor.id} value={vendor.id}>
+                  {vendor.name}
+                </option>
+              ))}
+            </select>
+            <div className="invalid-feedback">{errors?.vendorId?.message}</div>
           </div>
         </div>
         <br />
-        <div className="d-flex justify-content-end gap-2">
+        <div className="d-flex justify-content-end gap-2 w-75">
           <Link to="/products" className="btn btn-outline-primary">
             Cancel
           </Link>

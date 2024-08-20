@@ -82,8 +82,8 @@ export function VendorForm() {
           <div className="invalid-feedback">{errors?.address?.message} </div>
         </div>
         <br />
-        <div className="d-flex gap-3">
-          <div className="w-25">
+        <div className="d-flex gap-3 w-75">
+          <div className="w-50">
             <label className="form-label" htmlFor="city">
               City
             </label>
@@ -174,14 +174,14 @@ export function VendorForm() {
         </div>
               </div>
         <br />
-        <div className="d-flex gap-3">
+        <div className="d-flex gap-3 w-75">
           <div className="w-25">
             <label className="form-label" htmlFor="phone">
               Phone
             </label>
             <input {...register("phone")} type="text" className="form-control" placeholder="Enter a phone number" />
           </div>
-          <div className="w-50">
+          <div className="w-75">
             <label className="form-label" htmlFor="email">
               Email
             </label>
@@ -190,7 +190,7 @@ export function VendorForm() {
         </div>
         <br />
         <br />
-        <div className="d-flex justify-content-end gap-2">
+        <div className="d-flex justify-content-end gap-2 w-75">
           <Link to="/vendors" className="btn btn-outline-primary">
             Cancel
           </Link>

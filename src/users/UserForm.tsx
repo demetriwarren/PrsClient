@@ -97,14 +97,14 @@ export function UserForm() {
           </div>
         </div>
         <br />
-        <div className="row-3 d-flex gap-3">
+        <div className="row-3 d-flex gap-3 w-75">
           <div className="w-25">
             <label className="form-label" htmlFor="phone">
               Phone
             </label>
             <input {...register("phone")} type="text" className="form-control" placeholder="Enter a phone number" />
           </div>
-          <div className="w-50">
+          <div className="w-75">
             <label className="form-label" htmlFor="email">
               Email
             </label>
@@ -125,7 +125,7 @@ export function UserForm() {
           </div>
         </div>
         <br />
-        <div className="d-flex justify-content-end gap-2">
+        <div className="d-flex justify-content-end gap-2 w-75">
           <Link to="/users" className="btn btn-outline-primary">
             Cancel
           </Link>
