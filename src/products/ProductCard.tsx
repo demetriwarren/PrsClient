@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Product } from "./Product";
 import { SyntheticEvent } from "react";
 
+
 interface ProductCardProps {
     product: Product;
     onRemove: (product: Product) => void;
@@ -16,7 +17,7 @@ export function ProductCard({product, onRemove}: ProductCardProps){
                 <span className="badge text-bg-secondary">{product.price}</span>
             </div>
             <div className="mt-4">
-                <p className="m-0">{product.name}</p>
+                <p className="m-0">{product.vendorId}</p>
 
             </div>
             <div>

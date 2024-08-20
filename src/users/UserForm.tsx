@@ -27,8 +27,10 @@ export function UserForm() {
     try {
       if (user.isNew) {
         await userAPI.post(user);
+        toast.success("User created successfully!")
       } else {
         await userAPI.put(user);
+        toast.success("User updated successfully!")
       }
       navigate("/users");
     } catch (error: any) {

@@ -21,9 +21,9 @@ export function VendorCard({vendor, onRemove}: VendorCardProps){
                 <p className="m-0">{vendor.phone}</p>
                 <p className="m-0">{vendor.email}</p>
             </div>
-            <div>
-                <Link to={`edit/${vendor.id}`}>Edit</Link> |
-                <a className="ms-1 hover" onClick={(event: SyntheticEvent) =>{
+            <div className="mt-3 ">
+                <Link className="btn btn-outline-primary px-2 py-1" to={`edit/${vendor.id}`}>Edit</Link>
+                <a className="ms-2 btn btn-outline-primary px-2 py-1" onClick={(event: SyntheticEvent) =>{
                     event.preventDefault();
                     onRemove(vendor);
                 }}>Delete</a>
