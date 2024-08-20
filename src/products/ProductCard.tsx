@@ -14,15 +14,15 @@ export function ProductCard({product, onRemove}: ProductCardProps){
         <div className="card-body ">
             <div>
                 <h5 className="card-title">{product.name}</h5>
-                <span className="badge text-bg-secondary">{product.price}</span>
+                <span className="">${product.price} / {product.unit}</span>
             </div>
             <div className="mt-4">
-                <p className="m-0">{product.vendorId}</p>
-
+                <p className="m-0">{product.id}</p>
+                <p className="m-0 badge text-bg-secondary">{product.partNbr}</p>
             </div>
-            <div>
-                <Link to={`edit/${product.id}`}>Edit</Link> |
-                <a className="ms-1 hover" onClick={(event: SyntheticEvent) =>{
+            <div className="mt-3">
+                <Link className="btn btn-outline-primary px-2 py-1" to={`edit/${product.id}`}>Edit</Link>
+                <a className="ms-2 btn btn-outline-primary px-2 py-1" onClick={(event: SyntheticEvent) =>{
                     event.preventDefault();
                     onRemove(product);
                 }}>Delete</a>
