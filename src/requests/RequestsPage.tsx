@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { RequestList } from "./RequestList";
+import { RequestTable } from "./RequestTable";
 
 export function RequestsPage(){
     return (
@@ -13,7 +13,7 @@ export function RequestsPage(){
             New Request
           </NavLink>
         </header>
-            <RequestList/>
+            <RequestTable/>
         </>
     )
 }

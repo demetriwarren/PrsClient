@@ -1,3 +1,5 @@
+import { RequestLine } from "../requestLines/RequestLine";
+
 export class Request{
     id: number | undefined;
     description = "";
