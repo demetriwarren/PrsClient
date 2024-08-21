@@ -77,7 +77,8 @@ export function RequestForm() {
             <div className="w-50">
               <label htmlFor="deliveryMode">Delivery Method</label>
               <select
-                className={`form-select mt-2 ${errors.deliveryMode && "is-invalid"}`} 
+                className={`form-select mt-2 ${errors.deliveryMode && "is-invalid"} `}
+                 
                 id="deliveryMode"
                 {...register("deliveryMode", { required: "Delivery method is required" })}
               >
@@ -106,8 +107,8 @@ export function RequestForm() {
 
             <div className="w-50">
               <label htmlFor="requestedBy">Requested By</label>
-              <select className="form-select mt-2" id="deliveryMethod">
-                <option value=""></option>
+              <select className="form-select mt-2" id="requestedBy" {...register("userId", {valueAsNumber: true})}>
+                <option value="-1">Select...</option>
                 {users.map((user) => (
                   <option key={user.id} value={user.id}>
                     {user.firstname} {user.lastname}

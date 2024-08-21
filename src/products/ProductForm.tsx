@@ -106,7 +106,7 @@ export function ProductForm() {
             <select
               className={`form-select mt-1 ${errors.vendorId && "is-invalid"}`}
               id="vendorId"
-              {...register("vendorId", { required: "Vendor is required."})}
+              {...register("vendorId", { required: "Vendor is required.", valueAsNumber: false})}
             >
               <option value="">--- Select a vendor ---</option>
               {vendors.map((vendor) => (

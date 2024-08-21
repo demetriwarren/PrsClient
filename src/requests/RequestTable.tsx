@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { requestAPI } from "./RequestApi";
 import { Request } from "./Request";
 import toast from "react-hot-toast";
-import RequestTableRow from "./RequestTableRow";
+import { RequestTableRow } from "./RequestTableRow";
 
-function RequestTable() {
+export function RequestTable() {
   const [requests, setRequests] = useState<Request[]>([]);
   const [busy, setBusy] = useState(false);
 
@@ -44,25 +44,26 @@ function RequestTable() {
           </div>
         </section>
       )}
+      <div className="card mt-4 bg-body-tertiary p-4">
       <table className="table table-hover w-75">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Genre</th>
-            <th>Rating</th>
-            <th>Director</th>
-            <th>Budget</th>
+            <th>#</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Requested By</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {movies.map((movie) => (
-            <MovieTableRow key={movie.id} movie={movie} onRemove={remove} />
+          {requests.map((request) => (
+            <RequestTableRow key={request.id} request={request} onRemove={remove} />
           ))}
         </tbody>
       </table>
+          </div>
     </>
   );
 }
 
-export default MovieTable;
