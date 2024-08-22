@@ -18,6 +18,7 @@ import { ProductsPage } from "./products/ProductsPage";
 import { ProductCreatePage } from "./products/ProductCreatePage";
 import { ProductEditPage } from "./products/ProductEditPage";
 import { Toaster } from "react-hot-toast";
+import { RequestDetailPage } from "./requests/RequestDetailPage";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
                 <Route path="requests" element={<RequestsPage/>}/>
                 <Route path="requests/create" element={<RequestCreatePage/>}/>
                 <Route path="requests/edit/:id" element={<RequestEditPage/>}/>
+                <Route path="requests/detail/:requestId" element={<RequestDetailPage/>}/>
 
               </Routes>
             </section>

@@ -15,7 +15,7 @@ export function RequestTableRow({ request, onRemove }: RequestTableRowProps) {
       </td>
 
       <td>
-        <Link to={`/request/detail/${request.id}`}>{request.description}</Link>
+        <span>{request.description}</span>
         <p className="small">{request.justification}</p>
       </td>
 
@@ -35,19 +35,24 @@ export function RequestTableRow({ request, onRemove }: RequestTableRowProps) {
 
       <td>
         <div className="d-flex gap-2">
-          <Link className="small" to={`/requests/edit/${request.id}`}>
+        <Link className="" to={`/requests/detail/${request.id}`}>
+            Review
+          </Link> |
+
+          <Link className="" to={`/requests/edit/${request.id}`}>
             Edit
           </Link>
           |
           <a
-            className="small"
+            className=""
             onClick={(event: SyntheticEvent) => {
-              event.preventDefault();
-              onRemove(request);
+                event.preventDefault();
+                onRemove(request);
             }}
-          >
+            >
             Delete
-          </a>
+              </a>  
+
         </div>
       </td>
     </tr>
