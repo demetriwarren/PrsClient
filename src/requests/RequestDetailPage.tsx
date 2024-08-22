@@ -54,16 +54,24 @@ export function RequestDetailPage() {
 
   return (
     <>
-      <nav className="d-flex justify-content-between pe-2">
+      <header className="d-flex justify-content-between">
         <h4>Request</h4>
+        <div className="d-flex gap-2">
+
         <Link
           to={`/requests/edit/${request.id}`}
-          className="btn btn-outline-primary"
-        >
+          className="btn btn-primary"
+          >
+          Submit for Review
+        </Link>
+        <Link
+          to={`/requests/edit/${request.id}`}
+          className="btn btn-primary"
+          >
           Edit Request
         </Link>
-      </nav>
-      <hr />
+            </div>
+          </header>
       <>
         {busy && (
           <section className="d-flex justify-content-center align-items-center align-content-center vh-100">
@@ -74,7 +82,7 @@ export function RequestDetailPage() {
         )}
         {request && (
           <>
-            <section className="card d-flex flex-row gap-5 p-4 w-100 bg-body-tertiary">
+            <section className=" d-flex flex-row gap-5 p-4 w-100 mt-4 justify-content-between">
               <dl>
                 <dt>Description</dt>
                 <dd>{request.description}</dd>
@@ -85,7 +93,7 @@ export function RequestDetailPage() {
                 <dt>Delivery Method</dt>
                 <dd>{request.deliveryMode}</dd>
                 <dt>Status</dt>
-                <dd>{request.status}</dd>
+                <dd className="badge text-bg-primary">{request.status}</dd>
               </dl>
               <dl>
                 <dt>Requested By</dt>
@@ -95,15 +103,17 @@ export function RequestDetailPage() {
             <section className="card p-4 mt-4 w-100">
               <header className="d-flex justify-content-between">
                 <h5>Items</h5>
-
-                <Link
-                  className="btn btn-outline-primary"
-                  to={`/requests/detail/${request.id}/requestline/create`}
-                >
-                  + Add a line
-                </Link>
               </header>
               <RequestLineTable request={request} onRemove={removeRequestLine} />
+              
+              <div >
+                <Link
+                  className="btn btn-outline-primary px-1 ms-1"
+                  to={`/requests/detail/${request.id}/requestline/create`}
+                  >
+                  + Add a line
+                </Link>
+                  </div>
             </section>
           </>
         )}

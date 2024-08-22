@@ -9,11 +9,13 @@ interface RequestLineTableProps {
 
 export function RequestLineTable({ request, onRemove }: RequestLineTableProps) {
   return (
-    <table className="table table-hover table-light w-50">
+    <table className="table table-hover w-50">
       <thead>
         <tr>
-          <th>Actor</th>
-          <th>Role</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Amount</th>
           <th></th>
         </tr>
       </thead>
