@@ -17,6 +17,7 @@ import { RequestEditPage } from "./requests/RequestEditPage";
 import { ProductsPage } from "./products/ProductsPage";
 import { ProductCreatePage } from "./products/ProductCreatePage";
 import { ProductEditPage } from "./products/ProductEditPage";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -25,6 +26,19 @@ function App() {
         <div>
           <Header />
           <main className="d-flex">
+          <Toaster
+            toastOptions={{
+              success: {
+                iconTheme: {
+                  primary: "#0d6efd",
+                  secondary: "white",
+                },
+              },
+              style: {
+                maxWidth: 500,
+              },
+            }}
+          />
             <NavPanel />
             <section className="container-fluid pt-4 px-5 ms-0">
               <Routes>

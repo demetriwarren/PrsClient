@@ -1,4 +1,5 @@
 import { RequestLine } from "../requestLines/RequestLine";
+import { User } from "../users/User";
 
 export class Request{
     id: number | undefined;
@@ -10,6 +11,7 @@ export class Request{
     total = 0;
     userId: number | undefined 
     requestLines: RequestLine[] | undefined
+    user: User | undefined
 
 
     get isNew(): boolean{
