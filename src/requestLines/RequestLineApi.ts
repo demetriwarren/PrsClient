@@ -1,7 +1,7 @@
 import { BASE_URL, checkStatus, delay, parseJSON } from "../utility/fetchUtilities";
 import { RequestLine } from "./RequestLine";
 
-let url = `${BASE_URL}/requestline`;
+let url = `${BASE_URL}/requestlines`;
 
 export const requestLineAPI = {
   list(): Promise<RequestLine[]> {

@@ -22,6 +22,10 @@ export function RequestLineTable({ request, onRemove }: RequestLineTableProps) {
       <tbody>
         {request.requestLines?.map((requestLine) => (
           <tr key={requestLine.id}>
+            <td>{requestLine.product?.name}</td>
+            <td>${requestLine.product?.price}</td>
+            <td>{requestLine.quantity}</td>
+            <td>${(requestLine.product?.price ?? 0) * (requestLine.quantity ?? 0)}</td>
             <td className="d-flex gap-2">
               <Link to={`/requests/detail/${request.id}/requestlines/edit/${requestLine.id}`}>edit</Link>
               <a

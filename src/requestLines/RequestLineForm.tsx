@@ -68,6 +68,11 @@ export function RequestLineForm() {
         </select>
         <div className="invalid-feedback">{errors?.productId?.message}</div>
       </div>
+          <div>
+            <label htmlFor="price">Price</label>                                                {/* product price is here */}
+            <p>$0.00</p>
+          </div>
+
 
       <div className="mb-3">
         <label className="form-label" htmlFor="quantity">
@@ -84,11 +89,16 @@ export function RequestLineForm() {
         <div className="invalid-feedback">{errors?.quantity?.message}</div>
       </div>
 
-      <div className="d-flex gap-2">
-        <button className="btn btn-outline-primary">Save</button>
-        <Link className="btn btn-outline-secondary" to={`/requests/detail/${requestId}`}>
+      <div>
+        <label htmlFor="amount">Amount</label>                                          {/* Product * quantity total goes here  */}
+        <p>$0.00</p>
+      </div>
+
+      <div className="d-flex gap-2 justify-content-end">
+        <Link className="btn btn-outline-primary" to={`/requests/detail/${requestId}`}>
           Cancel
         </Link>
+        <button className="btn btn-primary">Save line</button>
       </div>
     </form>
   );
