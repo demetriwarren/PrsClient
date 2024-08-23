@@ -55,7 +55,7 @@ export function RequestDetailPage() {
   return (
     <>
       <header className="d-flex justify-content-between">
-        <h2>Request</h2>
+        <h2>Request details</h2>
         <div className="d-flex gap-2">
 
         <Link

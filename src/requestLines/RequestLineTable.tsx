@@ -27,15 +27,15 @@ export function RequestLineTable({ request, onRemove }: RequestLineTableProps) {
             <td>{requestLine.quantity}</td>
             <td>${(requestLine.product?.price ?? 0) * (requestLine.quantity ?? 0)}</td>
             <td className="d-flex gap-2">
-              <Link to={`/requests/detail/${request.id}/requestlines/edit/${requestLine.id}`}>edit</Link>
-              <a
+              <Link className="btn btn-outline-primary" to={`/requests/detail/${request.id}/requestline/edit/${requestLine.id}`}>Edit</Link>
+              <a className="btn btn-outline-primary"
                 href="#"
                 onClick={(event) => {
                   event.preventDefault();
                   onRemove(requestLine);
                 }}
               >
-                delete
+                Delete
               </a>
             </td>
           </tr>

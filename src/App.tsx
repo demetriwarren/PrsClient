@@ -20,6 +20,7 @@ import { ProductEditPage } from "./products/ProductEditPage";
 import { Toaster } from "react-hot-toast";
 import { RequestDetailPage } from "./requests/RequestDetailPage";
 import { RequestLineCreatePage } from "./requestLines/RequestLineCreatePage";
+import { RequestLineEditPage } from "./requestLines/RequestLineEditPage";
 
 function App() {
   return (
@@ -64,7 +65,7 @@ function App() {
                 <Route path="requests/edit/:id" element={<RequestEditPage/>}/>
                 <Route path="requests/detail/:requestId" element={<RequestDetailPage/>}/>
                 <Route path="requests/detail/:requestId/requestline/create" element={<RequestLineCreatePage/>}/>
-                <Route path="requests/detail/:requestId/requestline/edit" element={<RequestEditPage/>}/>
+                <Route path="requests/detail/:requestId/requestline/edit/:requestLineId" element={<RequestLineEditPage/>}/>
 
               </Routes>
             </section>
