@@ -1,24 +1,22 @@
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import {
-  Link,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Request } from "./Request";
 import { requestAPI } from "./RequestApi";
 import { requestLineAPI } from "../requestLines/RequestLineApi";
 import { RequestLine } from "../requestLines/RequestLine";
 import { RequestLineTable } from "../requestLines/RequestLineTable";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 export function RequestDetailPage() {
   const { requestId: requestIdAsString } = useParams<{
     requestId: string;
   }>();
-  let [searchParams] = useSearchParams();
+
   const requestId = Number(requestIdAsString);
   const [request, setRequest] = useState<Request | undefined>(undefined);
   const [busy, setBusy] = useState(false);
+  const navigate = useNavigate();
 
   async function loadRequest() {
     try {
@@ -36,6 +34,46 @@ export function RequestDetailPage() {
   useEffect(() => {
     loadRequest();
   }, []);
+
+  const { handleSubmit } = useForm<Request>({
+    defaultValues: async () => {
+      if (!requestId) {
+        return Promise.resolve(new Request());
+      } else {
+        return await requestAPI.find(requestId);
+      }
+    },
+  });
+
+  const reviewRequest: SubmitHandler<Request> = async (request: Request) => {
+    try {
+      await requestAPI.submitForReview(request);
+      navigate("/requests");
+      toast.success("Request successfully sent for review!")
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
+
+  const approveRequest: SubmitHandler<Request> = async (request: Request) => {
+    try {
+      await requestAPI.approveRequest(request);
+      navigate("/requests");
+      toast.success("Request successfully approved!")
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
+
+  const rejectRequest: SubmitHandler<Request> = async (request: Request) => {
+    try {
+      await requestAPI.rejectRequest(request);
+      navigate("/requests");
+      toast.success("Request successfully rejected!")
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
 
   async function removeRequestLine(requestLine: RequestLine) {
     if (confirm("Are you sure you want to delete this Request?")) {
@@ -57,21 +95,20 @@ export function RequestDetailPage() {
       <header className="d-flex justify-content-between">
         <h2>Request details</h2>
         <div className="d-flex gap-2">
-
-        <Link
-          to={`/requests/edit/${request.id}`}
-          className="btn btn-primary"
-          >
-          Submit for Review
-        </Link>
-        <Link
-          to={`/requests/edit/${request.id}`}
-          className="btn btn-primary"
-          >
-          Edit Request
-        </Link>
-            </div>
-          </header>
+          <button className="btn btn-outline-primary" onClick={handleSubmit(approveRequest)}>
+            Approve Request
+          </button>
+          <button className="btn btn-outline-primary" onClick={handleSubmit(rejectRequest)}>
+            Reject Request
+          </button>
+          <button className="btn btn-primary" onClick={handleSubmit(reviewRequest)}>
+            Submit for Review
+          </button>
+          <Link to={`/requests/edit/${request.id}`} className="btn btn-primary">
+            Edit Request
+          </Link>
+        </div>
+      </header>
       <>
         {busy && (
           <section className="d-flex justify-content-center align-items-center align-content-center vh-100">
@@ -97,7 +134,9 @@ export function RequestDetailPage() {
               </dl>
               <dl>
                 <dt>Requested By</dt>
-                <dd>{request.user?.firstname} {request.user?.lastname}</dd>
+                <dd>
+                  {request.user?.firstname} {request.user?.lastname}
+                </dd>
               </dl>
             </section>
             <section className="card p-4 mt-4 w-100">
@@ -105,15 +144,15 @@ export function RequestDetailPage() {
                 <h5>Items</h5>
               </header>
               <RequestLineTable request={request} onRemove={removeRequestLine} />
-              
-              <div >
+
+              <div>
                 <Link
                   className="btn btn-outline-primary px-1 ms-1"
                   to={`/requests/detail/${request.id}/requestline/create`}
-                  >
+                >
                   + Add a line
                 </Link>
-                  </div>
+              </div>
             </section>
           </>
         )}
@@ -121,4 +160,3 @@ export function RequestDetailPage() {
     </>
   );
 }
-
