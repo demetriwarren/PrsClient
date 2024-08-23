@@ -40,7 +40,7 @@ export function SignInPage() {
       persistUser(user);
       setUser(user);
 
-      navigate("/requests");
+      navigate("/");
     } catch (error: any) {
       toast.error("Unsuccessful sign in. Please try again.");
     }
