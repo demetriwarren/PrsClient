@@ -13,6 +13,10 @@ export class User {
     return this.id === undefined;
   }
 
+  get initials(): string {
+    return  this.firstname.substring(0, 1)
+  }
+
   constructor(initializer?: any) {
     if (!initializer) return;
     if (initializer.id) this.id = initializer.id;

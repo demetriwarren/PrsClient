@@ -21,11 +21,26 @@ import { Toaster } from "react-hot-toast";
 import { RequestDetailPage } from "./requests/RequestDetailPage";
 import { RequestLineCreatePage } from "./requestLines/RequestLineCreatePage";
 import { RequestLineEditPage } from "./requestLines/RequestLineEditPage";
+import { UserContext } from "./users/UserContext";
+import { useState } from "react";
+import { User } from "./users/User";
+
+function getPersistedUser() {
+  const userAsJSON = localStorage.getItem("user");
+  if (!userAsJSON) return undefined;
+  const user = JSON.parse(userAsJSON);
+  return user;
+}
 
 function App() {
+
+  const [user, setUser] = useState<User | undefined>(getPersistedUser());
   return (
     <BrowserRouter>
+    <UserContext.Provider value={{ user, setUser }}>
+      
       <>
+      
         <div>
           <Header />
           <main className="d-flex">
@@ -41,7 +56,7 @@ function App() {
                 maxWidth: 500,
               },
             }}
-          />
+            />
             <NavPanel />
             <section className="container-fluid pt-4 px-5 ms-0">
               <Routes>
@@ -72,6 +87,7 @@ function App() {
           </main>
         </div>
       </>
+            </UserContext.Provider>
     </BrowserRouter>
   );
 }

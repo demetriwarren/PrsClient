@@ -20,6 +20,14 @@ import {
       return fetch(`${url}/${id}`).then(checkStatus).then(parseJSON);
     },
   
+    findByAccount(username: string, password: string): Promise<User> {
+      return (
+        fetch(`${url}/${username}/${password}`)
+          .then(checkStatus)
+          .then(parseJSON)
+      );
+    },
+
     post(user: User) {
       return fetch(`${url}`, {
         method: "POST",

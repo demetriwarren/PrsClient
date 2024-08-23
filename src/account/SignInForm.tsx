@@ -1,9 +1,11 @@
+import { SignInPage } from "./SignInPage";
+
 export function SignInForm(){
     return (
         <>
-            <section className="card">
-
-            </section>
+            <h2>Sign In</h2>
+            <hr />
+            <SignInPage/>
         </>
     )
 }
