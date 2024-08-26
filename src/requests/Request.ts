@@ -8,7 +8,7 @@ export class Request{
     rejectionReason: string | undefined;
     deliveryMode = "Pickup";
     status = "NEW";
-    total = 0;
+    total: number | undefined;
     userId: number | undefined 
     requestLines: RequestLine[] | undefined
     user: User | undefined
